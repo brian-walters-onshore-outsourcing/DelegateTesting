@@ -21,7 +21,7 @@ namespace DelegateTesting
         {
             Console.WriteLine($"HELLO {a} times");
         }
-    }
+    }   // this class is used to study delegates only
 
     class Goodbye
     {
@@ -37,12 +37,12 @@ namespace DelegateTesting
                 Console.WriteLine($"GOODBYE {Name.ToUpper()}");
             }
         }
-    }
+    }  // this class is used to study delegates only
 
     class Ouch
     {
-        public  mydelegate Phase1;
-        public event mystillanother Phase2;
+        public /*specifically not an event*/ mydelegate Phase1;
+        public /*specifically not an event*/ mystillanother Phase2;
         public event  mystillanother Phase3;
         public event mydelegate Phase4; 
         public string Victim { get; set; }
@@ -73,7 +73,13 @@ namespace DelegateTesting
         }
 
        
-    }
+    }  // this class is the publisher of the 4 phase events
+
+    // the difference between phase1, phase2 and phase3, phase4
+    // is that the first two are NOT events (delegates only)
+    // and that the other two are events
+    //  events are different ONLY because they are less visible in the
+    // program class.
 
     class Program
     {
@@ -131,5 +137,5 @@ namespace DelegateTesting
             Console.WriteLine($"In Main Again, at phase 3 f = {first} s = {second}");
             return first * second;
         }
-    }
+    }   // this class is the subscriber of the 4 phase events
 }
